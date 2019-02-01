@@ -1,12 +1,12 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
-__author__ = 'zjbao123'
+
 import json
 import urllib2
 from PIL import Image,ImageDraw,ImageFont
 
 def weather():
-    # 获取每日天气数据
+    # Get the data of weather
     try:
         url = 'http://api.map.baidu.com/telematics/v3/weather?location=上海&output=json&ak=KPGX6sBfBZvz8NlDN5mXDNBF&callback='
         s=json.loads(urllib2.urlopen(url).read())
@@ -20,6 +20,7 @@ def weather():
         return s1,s2,s3
     except :
         print"error"
+        
 def draw_pic(l):
     img = Image.open('../image/background.jpg')
     draw = ImageDraw.Draw(img)
